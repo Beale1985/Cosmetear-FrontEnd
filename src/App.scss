@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.flex {
+    display: flex;
+}
+
+.ContenedorSideBar{
+    font-family: "Rubik", sans-serif;
+}
+
+.sidebarDashboard{
+    width: 14rem;
+    height: calc(86vh - 52px);
+    border: 1px solid gray;
+    background-color:#e5dfd8;
+    ul {
+        padding: 1rem 2rem;
+    }
+    li {
+        list-style: none;
+        a {
+            color: black;
+            text-decoration: none; 
+        }
+    }
+}
+.contenedorDeBusquedas {
+    background-color: #e5dfd8;
+}
+
+.contenedorDeInputsBusquedas{
+    background-color: #c3cace;
+}
+
+$light: #ffffff;
+$gray:#c4ccde;
+
