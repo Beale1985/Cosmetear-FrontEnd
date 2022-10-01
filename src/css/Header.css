@@ -1,0 +1,21 @@
+
+      #intro {
+        background-image: url("https://i.postimg.cc/KvBbKJfQ/attractive-woman-getting-face-beauty-procedures-in-spa-salon-2.jpg");
+        background-size: cover;
+        height: 100vh;
+      }
+
+      #root {
+        background-color: rgba(230, 175, 130, 0.10)
+      }
+
+      /* Height for devices larger than 576px */
+      @media (min-width: 992px) {
+        #intro {
+          margin-top: -58.59px;
+        }
+      }
+
+      .navbar .nav-link {
+        color: #fff !important;
+      }

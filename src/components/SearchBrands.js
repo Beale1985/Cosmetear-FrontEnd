@@ -1,15 +1,11 @@
-import CardsBrands from "./CardsBrands.js";
-import Footer from "./Footer.js";
-import Header from './Header.js';
 import {React} from 'react';
+import CardsBrands from "./CardsBrands.js"
 
 const SearchBrands = () => {
 
     return(
-        <div className="container-fluid">
-            <Header />
-            <CardsBrands />
-            <Footer />
+        <div className="container-fluid p-0">
+            <CardsBrands /> 
         </div>
     )
 }

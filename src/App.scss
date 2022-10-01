@@ -14,7 +14,6 @@
 
 .sidebarDashboard{
     width: 14rem;
-    height: calc(86vh - 52px);
     border: 1px solid gray;
     background-color:#e5dfd8;
     ul {
@@ -28,14 +27,82 @@
         }
     }
 }
-.contenedorDeBusquedas {
-    background-color: #e5dfd8;
+
+.cursorIzqSlide {
+    left: -40px !important;
+    filter: invert(1);
 }
 
-.contenedorDeInputsBusquedas{
-    background-color: #c3cace;
+.cursorDerSlide{
+    right: -40px !important;
+    filter: invert(1);
 }
 
-$light: #ffffff;
-$gray:#c4ccde;
+.header {
+    background-color: rgba(#3d444e, 0.8);
+    height: 60px
+}
 
+.footer {
+    background-color: rgba(#3d444e, 0.8);
+}
+
+.contenedor {
+    min-height: 100%;
+}
+
+figure{
+    position:relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+figure .contenedor a img{
+    color: black;
+    min-height: 100%;
+    transition: all 400ms ease-out;
+    will-change: transform;
+}
+
+figure .contenedor a {
+    align-items: center;
+    min-height: 110px;
+    color: black;
+    text-decoration: none;
+}
+
+figure .contenedor .capa{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(#3d444e,0.7);
+    transition: all 400ms ease-out;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+}
+
+figure .contenedor a:hover > .capa {
+    opacity: 1;
+    visibility: visible;
+}
+
+figure .contenedor a:hover > .capa h3{
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+figure .contenedor a:hover > img{
+    transform: scale(1.1);
+}
+
+figure .contenedor .capa h3{
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 120px;
+    transition: all 400ms ease-out;
+     margin-top: 30px;
+}

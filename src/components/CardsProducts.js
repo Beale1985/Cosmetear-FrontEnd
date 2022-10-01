@@ -1,7 +1,7 @@
 import {React, useEffect, useState} from 'react';
 import Product from './Product.js';
-import Brand from './Brand.js';
 import { useParams, useNavigate } from "react-router-dom";
+import Header from './Header';
 
 function CardsProducts() {
 
@@ -10,7 +10,7 @@ function CardsProducts() {
   const navigate =useNavigate() 
 
   useEffect(() => {
-    fetch("http://localhost:8000/products")
+    fetch("/products")
       .then((response) => response.json())
       .then((data) => {
         setProduct(data);
@@ -18,32 +18,33 @@ function CardsProducts() {
       .catch((error) => console.error(error));
   }, []);
 
-  const productosFiltradosMarca = products.filter(brand => {
-    return brand.idbrand == id
-  })
+  const productosFiltradosMarca = products.filter(brand => 
+    brand.idbrand == id
+  )
 
   return (
-    <div className='conteiner-fluid contenedorDeBusquedas'><br/>
-
-    <h2>{id}</h2>
-
+    <div>
+      <Header />
+    <div className="conteiner-fluid m-3"><br/>
       <div className='row p-2'>
         {
           productosFiltradosMarca.map(product => (
-            <div className='col-md-3' key={product.idproduct}>
-              <Product 
+            <div className='col-md-3' key={product.id}>
+              <Product
+                  logo_image={product.Brand.logo_image}
                   name={product.name}
-                  idproduct={product.idproduct}
-                  origen={product.origen}
-                  cruelty_free={product.cruelty_free}
-                  cruelty_free_certificate={product.cruelty_free_certificate}
-                  vegano={product.vegano}
+                  idbrand={product.idbrand}
+                  id={product.id}
+                  use={product.Use.name}
+                  category={product.Category.name}
+                  sub_category={product.SubCategory.id}
               />
             </div>
           ))
         }
       </div>
-      <button type="reset" className="btn btn-primary" onClick={() => navigate(-1)}>Volver</button>
+      <button type="reset" className="btn btn-secondary" style={{boxShadow: '1px 2px 9px #C5B4A3'}} onClick={() => navigate(-1)}>Volver</button>
+      </div>
       </div>
   )
 }

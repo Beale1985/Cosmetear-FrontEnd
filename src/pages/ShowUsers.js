@@ -23,7 +23,7 @@ const ShowUsers = () => {
     }
 
     return(
-        <div className="container-fluid">
+        <div className="container-fluid contenedorDashboard">
             <div className="row">
                 <div className="col text-center">
                 <Link to="/usuarios/crear" className="btn btn-primary mt-2 mb-2">Ingresar Nuevo Usuario</Link>

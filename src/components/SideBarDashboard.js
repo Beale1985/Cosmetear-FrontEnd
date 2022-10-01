@@ -18,6 +18,9 @@ function SideBarDashboard() {
             <li>
                 <Link to="/dashboard/usuarios"><FaIcons.FaUserAlt className='me-2'/>Usuarios</Link>
             </li>
+            <li>
+                <Link to="/dashboard/categorias"><FaIcons.FaUserAlt className='me-2'/>Categorías</Link>
+            </li>
         </ul>
     </div>
   )

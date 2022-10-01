@@ -34,10 +34,10 @@ const CreateBrand = () => {
     }
 
     return (
-        <div>
-            <h1>Vista Crear</h1>
-            <form onSubmit={storeBrands} >
-                <div className="mb-3">
+        <div className="conteiner-fluid">
+            <h1 className="text-center">Ingresar Nueva Marca</h1>
+            <form onSubmit={storeBrands} id="formCrearMarca" >
+                <div className="mb-3 text-center">
                     <label className="form-label">Nombre</label>
                     <input
                         value={name}
@@ -48,7 +48,7 @@ const CreateBrand = () => {
                     />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 text-center">
                     <label className="form-label">Instagram</label>
                     <input
                         value={instagram}
@@ -59,7 +59,7 @@ const CreateBrand = () => {
                     />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 text-center">
                     <label className="form-label">Sitio Oficial</label>
                     <input
                         value={webpage}
@@ -70,7 +70,7 @@ const CreateBrand = () => {
                     />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 text-center">
                     <label className="form-label">Logo</label>
                     <input
                         value={imagen_logo}
@@ -81,7 +81,7 @@ const CreateBrand = () => {
                     />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 text-center">
                     <label className="form-label">Origen</label>
                     <input
                         value={origen}
@@ -92,7 +92,7 @@ const CreateBrand = () => {
                     />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 text-center">
                     <label className="form-label">Cruelty Free</label>
                     <input
                         value={cruelty_free}
@@ -103,7 +103,7 @@ const CreateBrand = () => {
                     />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 text-center">
                     <label className="form-label">Cruelty Free certificate</label>
                     <input
                         value={cruelty_free_certificate}
@@ -114,7 +114,7 @@ const CreateBrand = () => {
                     />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 text-center">
                     <label className="form-label">Vegano</label>
                     <input
                         value={vegano}
@@ -125,7 +125,7 @@ const CreateBrand = () => {
                     />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 text-center">
                     <label className="form-label">Observaciones</label>
                     <textarea
                         value={observaciones}

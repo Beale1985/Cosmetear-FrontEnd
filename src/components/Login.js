@@ -1,52 +1,52 @@
 import React, { useState } from "react";
-import { AiFillFacebook,AiFillTwitterSquare, AiFillGooglePlusSquare } from "react-icons/ai";
 import axios from "../api/axios";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
-import Footer from "./Footer";
+import Cookies from "universal-cookie";
 
 const URI = "http://localhost:8000/login"
 
 const Login =  () => { 
-	const navigate =useNavigate()
-	const [email, setEmail] = useState (" ")
-    const [password, setPassword] = useState (" ")
+	
+const navigate =useNavigate()
+const [email, setEmail] = useState (" ")
+const [password, setPassword] = useState (" ")
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-        await axios.post(URI,
-            {
-              email:email,
-              password:password,
-            })
-			.then( response => {
-				if (response.data.message === "OK"){
-					navigate("/dashboard")
-				} else if (response.data.message === "Contraseña Incorrecta"){
-					alert(response.data.message)
-				}
-			})
-			.catch (error => {
-				alert(error.response.data.message)
-			})
+const alertPassword = document.getElementById("alertPassword")
+
+const handleSubmit = async (e) => {
+	e.preventDefault();
+    await axios.post(URI,
+        {
+        email:email,
+        password:password,
+    })
+	.then( response => {
+		if (response.data.message === "OK"){
+			const cookies = new Cookies();
+			cookies.set("user", email, {path: "/dashboard"})
+			window.location.href="/dashboard"
+			navigate("/dashboard")
+		} else if (response.data.message === "Contraseña Incorrecta"){
+			alertPassword.style.display="block"
+		}
+	})
+	.catch (error => {
+		alert(error.response.data.message)
+	})
     }
 
-    return(
-			<div className="container-fluid">
-			<Header />
-			<div className="body-login">
-        		<div className="container-login">
-					<div className="d-flex justify-content-center h-100">
-						<div className="card-login">
-							<div className="card-header">
-								<div className="d-flex justify-content-end social_icon">
-									<span><AiFillFacebook /></span>
-									<span><AiFillTwitterSquare /></span>
-									<span><AiFillGooglePlusSquare /></span>
-								</div>
-                				<h3>Ingresar</h3>
-							</div>
-						<div className="card-body-login">
+return(
+	<div>
+		<Header />
+		<div className="body-login" style={{height:"81vh"}}>
+        	<div className="container mt-4 mb-4 rounded" style={{width:"25%", backgroundColor: "rgba(255, 255, 255, 0.9)"}}>
+				<div className="d-flex justify-content-center h-100">
+					<div className="card-login">
+						<div className="card-header text-center">
+                			<h3>Ingresar</h3>
+						</div>
+					<div className="card-body-login text-center">
 						<form onSubmit={handleSubmit}>
 							<div className="form-group">
 								<label htmlFor="usuario">Usuario</label>
@@ -66,27 +66,19 @@ const Login =  () => {
 								className="form-control"
 								placeholder="Password"/>
 							</div>
+							<div className="text-danger" id="alertPassword" style={{display:"none"}}>Contraseña Incorrecta</div>
 							<div className="form-check">
 								<input type="checkbox" className="form-check-input" id="exampleCheck1" />
 								<label className="form-check-label">Recuerdame</label>
 							</div>
-							<button className="btn btn-primary">Ingresar</button>
+							<button className="btn btn-primary m-3">Ingresar</button>
 						</form>
-						</div>
-					<div className="card-footer">
-						<div className="d-flex justify-content-center">
-							<a href="">Registrarse</a>
-						</div>
-						<div className="d-flex justify-content-center">
-							<a href="">Olvidaste tu contraseña?</a>
 						</div>
 					</div>
 				</div>
-				</div>
-				</div>
 			</div>
-			<Footer />
-			</div>
+		</div>
+	</div>
     )
 }
 
